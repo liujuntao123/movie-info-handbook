@@ -21,6 +21,6 @@ p {
 
 <style scoped>
 .container {
-  padding-top: 80px;
+  padding-top: 60px;
 }
 </style>

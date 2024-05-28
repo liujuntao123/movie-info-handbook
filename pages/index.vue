@@ -60,14 +60,10 @@ const handleIconClick = () => {
 <style scoped>
 .search-container {
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
-@media (max-width: 750px) {
-    .search-container {
-        width: 100%;
-    }
-}
+
 .logo{
     width: 40%;
     margin: 0 auto;
@@ -93,5 +89,14 @@ const handleIconClick = () => {
 .year-text{
     font-size: 12px;
     color: #999;
+}
+
+@media (max-width: 750px) {
+    .search-container {
+        width: 100%;
+    }
+    .search-box{
+        width: calc(100% - 20px);
+    }
 }
 </style>

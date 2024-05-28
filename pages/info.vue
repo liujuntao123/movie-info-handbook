@@ -1,5 +1,5 @@
 <template>
-    <div class="info-container">
+    <div v-loading="loading" class="info-container">
         <el-card class="info-box">
             <template #header>
                 <div class="card-header">
@@ -38,7 +38,7 @@
             </template>
             <div>
                 <div class="score">
-                    <el-rate :max="10" :model-value="info.score.rating" disabled show-score
+                    <el-rate style="--el-rate-font-size:32px" :max="10" :model-value="info.score.rating" disabled show-score
                         score-template="{value} 分" />
                 </div>
                 <div class="distribution">
@@ -52,7 +52,7 @@
                 <div class="better-than">
                     <el-space v-for="(item, index) in info.score.betterThan" :key="index">
                         好于
-                        <span>{{ item.percentage }}</span>
+                        <span style="font-size: 24px;">{{ item.percentage }}</span>
                         的
                         <span>{{ item.type }}</span>
                     </el-space>
@@ -89,9 +89,13 @@ const info = ref({
         betterThan: [],
     },
 })
+
+const loading = ref(true)
 onMounted(async () => {
     const res = await $fetch('/api/info?id=' + id)
+    loading.value = false
     info.value = res
+
 
 })
 </script>
@@ -102,13 +106,13 @@ onMounted(async () => {
 <style scoped>
 .info-container {
     width: 1200px;
-    padding-top: 20px;
+    padding-top: 10px;
     margin: 0 auto;
 }
 
 
-.img img {
-    width: 270px;
+.img  {
+    height: fit-content;
 }
 
 @media (max-width: 750px) {
@@ -125,18 +129,22 @@ onMounted(async () => {
 
 
 .info-box {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .info-content {
     display: flex;
-    gap: 40px;
+    gap: 20px;
 }
 
 @media (max-width: 750px) {
     .info-content {
         flex-direction: column;
     }
+}
+
+.score-box{
+    margin-bottom: 10px;
 }
 
 .score {

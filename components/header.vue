@@ -2,7 +2,7 @@
     <div class="header-container">
         <div class="header">
             <div class="logo">
-                <NuxtLink to="/search">
+                <NuxtLink to="/">
                     <img src="~/assets/img/logo_transparent.png" alt="logo" />
                 </NuxtLink>
             </div>
@@ -20,7 +20,7 @@
     box-shadow: var(--el-box-shadow-light)
 }
 .header{
-    height: 80px;
+    height: 60px;
     display: flex;
     align-items: center;
     padding-left: 40px;
